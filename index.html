@@ -1,0 +1,700 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Aeronotics Team of kjsce ">
+    <meta name="author" content="Team Onyx">
+    <!-- <link rel="onyx logo" href="images/ONYX_LOGO_ICON.ico"  type="image/x-icon" /> -->
+    <link rel="icon" href="images/ONYXLOGO.png"   type="image/png"  /> 
+    <title>TEAM ONYX</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <!-- Owl Carousel min CSS -->
+    <link rel="stylesheet" href="docs.theme.min.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="owl.carousel.min.css">
+    <link rel="stylesheet" href="owl.theme.default.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="mycss.css">
+    <!-- font awesome -->
+    <link rel="text/stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- bootstrap jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- bootstrap javascript component -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <!-- link to  javascript -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script type="text/javascript">
+
+/*************************************
+ countdown 
+ *****************************************/
+var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+
+/******************************************
+jumbotron initial page
+*******************************************/
+      $(document).ready(function(){
+      var jumboHeight;
+        /* animation on opening website*/
+        $("#parallex_div").addClass("start");
+        $(".plain_text").addClass("start_margin");
+        // $(".navbar").hide();
+        $("#parallex_div").fadeIn(2000, function() {
+          $(".plain_text").fadeIn(2000, function() {
+            $("#parallex_div").removeClass("start","slow");
+            $(".plain_text").removeClass("start_margin","800");
+            // $(".navbar").show();
+            // $("#parallex_div").css("height:4px") ;
+            // $("#parallex_div").fadeOut(6);
+            $("#parallex_div").slideUp(500);
+          });
+        });
+
+        setTimeout(function(){ 
+          jumboHeight = $("#main_container").offset().top
+        }, 3000);
+              /* animation End*/
+
+/****************************************
+Expreites starts
+************************************/
+ProgressBar= $('.progress-bar');
+ProgressBar.removeClass('progress-bar');
+
+$(window).scroll(function() {
+var height_of_element= $('#expertise').outerHeight();
+
+var top_of_element = $("#expertise").offset().top;
+
+var bottom_of_element = $("#expertise").offset().top + $("#expertise").outerHeight();
+
+var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
+
+var top_of_screen = $(window).scrollTop();
+
+if($('window').width() > 970)
+{ 
+top_of_element+= 0.5*height_of_element;
+bottom_of_element -= 0.5*height_of_element;
+}            
+// check for the condition of visiblity
+if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+// The element is visible, do the animation
+ProgressBar.addClass('progress-bar').delay(2000);
+}
+});
+
+/* expertise positioning in medium screen strat*/
+
+var added
+var l_ex = $('#lastexpertise');
+//evenn before rezizing if 
+if(($(window).width() >=768) && ($(window).width() < 992))
+{
+  l_ex.addClass('col-sm-offset-4');
+   added = 1;
+
+}
+
+$(window).resize(function ()
+{
+
+
+if(($(window).width() > 768) && ($(window).width() < 992))
+{
+  l_ex.addClass('col-sm-offset-4');
+   added = 1;
+
+}else
+{
+
+  if(($(window).width() < 768) || ($(window).width() > 992))
+  { 
+      if(added = 1)
+    {
+      l_ex.removeClass('col-sm-offset-4');
+       }
+}
+}
+});
+          /* Expertise END*/
+
+/***********************************      
+navbar color change on scroll
+****************************************/
+      $(window).scroll(function()
+        { var scroll = $(window).scrollTop();
+          if (jumboHeight <= scroll) {
+            $(".mynav").addClass("tansitionclass");
+          }else{
+            $(".mynav").removeClass("tansitionclass");
+          }
+
+          }); 
+             /* parallex effect jumbotron*/
+    // var ypos,img;
+    // function parallex() {
+    //   ypos = window.pageYOffset;
+    //   img = document.getElementById('parallex_div');
+    //   img.style.top = ypos *.8 + 'px';
+    //  } 
+    //  window.addEventListener('scroll', parallex);
+
+      /* parallex effect jumbotron END*/
+
+
+/**************************************
+*sponsor slider js 
+********************************************/
+    $('.sponsors').owlCarousel({
+      loop:true,
+      // items:4,
+      autoplay:true,
+      autoplayTimeout:1000,
+      autoplayHoverPause:true,
+      dots: false,
+      responsive:{
+        0:{
+            items:2
+            
+        },
+        769:{
+            items:3
+            
+
+        },
+        992:{
+            items:4
+            
+        },
+        1200:{
+            items:5
+        }
+    }
+    });
+/**************************************
+*jumbotron carousel js
+********************************************/
+        $('.1st').owlCarousel({
+    //margin:30,
+    loop: true,
+    autoplay:true,
+    items:1,
+    autoplayTimeout:2500,
+    // autoHeight:true;
+    autoplayHoverPause:false,
+    responsive:{
+        0:{
+            items:1,
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+
+  });
+      
+
+});
+
+/***********************************
+animation 
+************************************/
+$('home_1st_para').slideUp(10000);
+$('media_&_events').slideUp(1000);
+    </script>
+
+    
+</head>
+
+
+
+
+  <body>
+    <!-- div for navbar-->
+    <div>
+      <nav class="navbar mynav navbar-default navbar-fixed-top " role="navigation">
+        <div class="container-fluid" >
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar" >
+              <span class="sr-only" >Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.somaiya.edu/kjsce" class="navbar-brand"  target="_blank" style="padding-left:0px"> 
+              <img src="IMAGES\sponsor\svv_logo18.png" class="navimgsize" alt="kjsce logo">
+            </a>
+            <a href="#" class="navbar-brand" >
+              <img src="images/ONYXLOGO.png" class="navimgsize" alt="Team onyx logo" style="padding-left:0px">
+            </a>
+          </div>
+          <div id="mynavbar" class="collapse navbar-collapse ">
+            <ul class="nav navbar-nav navbar-right nav_right_style"  >
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="AboutUs.html">About Us</a></li>
+              <!-- <li><a href="OurTeam.html">Our Team</a></li> -->
+              <li><a href="OurTeam.html">Our Team</a></li>
+              <li><a href="Sponsors.html">Sponsors</a></li>
+              <li><a href="ContactUs.php">Contact</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>   
+    </div>
+    <!-- end navbars -->
+    <!--everything enclosed in this container div except navbar -->
+    <!-- start jumboton -->
+    <div class="jumbotron" id="parallex_div">
+        <div class="plain_text" style="color:white;display:none"><h1>Team Onyx</h1>
+        <h3 style="color:white;margin-bottom:0px">Aeromodeling team Of KJSCE</h3></div>   
+   </div>
+
+   <!-- end jumbotron --> 
+
+
+  <div id="main_container" style="background-color:white !important;">
+
+
+
+<div class="owl-carousel 1st" id="carousel1_div">
+      <div class="item "><img src="IMAGES\Home page\Slide Show\1.jpg"></div>
+      <div class="item "><img src="IMAGES\Home page\Slide Show\2.jpg"></div>
+      <!-- <div class="item "><img src="IMAGES\Home page\Slide Show\3.jpg"></div> -->
+      <div class="item "><img src="IMAGES\Home page\Slide Show\4.jpg"></div>
+      <div class="item "><img src="IMAGES\Home page\Slide Show\5.jpg"></div>
+      <div class="item "><img src="IMAGES\Home page\Slide Show\6.jpg"></div>
+</div>
+
+    
+<!-- section for about team Onyx-->
+<div class="container-fluid" id="About_Team_Onyx">
+<!-- <h1 class="headings_shadow" ><span style="padding-bottom:12px;border-bottom: 2px solid #E7E7E7;"></span>
+    </h1> -->
+    
+<div  style="text-align: justify;" id="home_1st_para"> 
+  <br><br>
+    <p>Team Onyx is a student-run Aero design club that was formed in 2011 and has been active
+ever since. We design and fabricate Remote-Controlled Model Aircrafts and test it’s
+ingenuity in various Aero design and Aeromodelling competitions. Our primary focus is
+competing in national and international stage in the SAE Aero design Competitions.</p>
+  </div>
+</div>
+<!-- section for media and gallery -->
+<section> 
+  <div class="parallax_home container-fluid" id="media_&_events" style="margin-top:2%; ">
+  
+
+  <h1 class="headings_shadow" ><span style="padding-bottom:12px;border-bottom: 2px solid #E7E7E7;" id="media_&_events_title">Media and Event   </span>
+  </h1>
+
+    <!-- image top -->
+    <!-- image 1 --> 
+    <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" id="media_div_1">
+    <img src="IMAGES\Home page\Media and event\1.jpg" class="img-responsive img-thumbnail content_img_media"  />
+
+<p >
+  Autodesk: Autodesk Industries held an event at CIDCO exhibition centre Vashi in
+2016 where we displayed our model.
+  </p>
+    </div>
+  <!-- image 2 -->
+
+    <div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" id="media_div_2">
+<img src="IMAGES\Home page\Media and event\2.jpg" class="img-responsive img-thumbnail content_img_media"  />
+<p>
+  Abhiyantriki: Abhiyantriki is K. J. Somaiya College’s annual technical fest which
+boasts participation from organizations like DRDO, ISRO, BARC and in 2017, Team
+Onyx showcased their model to a footfall of over 15000 people
+  </p>
+    </div>
+
+
+ <!-- image bottom -->
+
+    <!-- image 3 --> 
+    <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="margin-top:2%;" id="media_div_1">
+      <img src="IMAGES\Home page\Media and event\3.jpg" class="img-responsive img-thumbnail content_img_media"  />
+      <p>
+  MakerMela: MakerMela is India’s largest Maker movement. In their annual fest in
+2018 at Somaiya Vidyavihar, Team Onyx again had its model up for display for
+thousands of people to see, observe and understand the processes behind making
+this plane.
+  </p>
+    </div>
+  <!-- image 4-->
+
+    <div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="margin-top:2%;" id="media_div_1"> 
+      <img src="IMAGES\Home page\Media and event\4.jpg"  class="img-responsive img-thumbnail img-fluid content_img_media"   />
+      <p>
+ Drone Competition: Apart from showcasing our works in various events, Team Onyx
+has also organized a drone racing competition in KJSCE for participants to test their
+piloting skills and win various cash prizes.
+  </p>
+    </div>
+
+ 
+</div>
+</section>
+
+<!-- Workshop -->
+<section style="padding-top: 0;">
+  <div class="container-fluid parallax_home1" >
+
+  <h1 class="headings_shadow" ><span style="padding-bottom:12px;border-bottom: 2px solid #E7E7E7;" id="Workshop_h1">Workshops</span>
+  </h1>
+    <div id="top_workshop" class="row" id="workshop_div_top"> 
+       <div class="col-md-5 col-lg-5 col-xs-10 col-sm-10  col-sm-offset-1 col-xs-offset-1 col-lg-offset-1
+       col-md-offset-1">
+          <img src="IMAGES\Home page\Workshops\1.jpg">
+        </div>
+      <div class="col-md-5 col-lg-5 col-xs-10 col-sm-10  col-sm-offset-1 col-xs-offset-1 col-lg-offset-1
+       col-md-offset-1">
+        <p>
+          <br>
+          TThe aeromodelling workshop organized by Team Onyx is one of the most anticipated
+events of the academic year. Usually a 2-Day workshop, students from various
+educational institutes across Mumbai participate to have a better understanding of
+concepts related to aviation and aerodynamics and apply the same concepts while
+making their own plane the following day taking into consideration various design
+elements and manufacturing processes.
+        
+        </p>
+       
+      </div>
+    </div>
+<p><br></p>
+    <div id="bottom_workshop" class="row" id="workshop_div_top">
+        <div class="col-md-5 col-lg-5 col-xs-10 col-sm-10  col-sm-offset-1 col-xs-offset-1 col-lg-offset-1
+       col-md-offset-1 ">
+          <img src="IMAGES\Home page\Workshops\2.jpg">
+        </div>
+      <div class="col-md-5 col-lg-5 col-xs-10 col-sm-10  col-sm-offset-1 col-xs-offset-1 col-lg-offset-1
+       col-md-offset-1">
+        <p><br>
+          This year witnessed a participation of about 100 aviation enthusiasts. Various
+aspects of aerodynamic concepts, manufacturing process, material selection, and design
+softwares were discussed in an interactive session. All these concepts were
+implemented while the students were given a kit to build their own P51 Mustang RC
+Aircraft.
+          
+        </p>
+      
+      </div>
+  </div>
+  <p><br></p>
+</div>
+
+</section>
+<!-- <section style="background-color:#EE5328;"> -->
+<!-- START New Feeds -->
+<!-- <div class="new_feeds container-fluid" >
+  -->
+ <!--  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10" id="fb_div"><H3 style="text-align:center;color:white;">FACEBOOK</H3>
+    <iframe id="fb_widget" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTeamOnyxIndia&tabs=timeline&width=333&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="333" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10" id="twitter_div">
+      <h3  style="text-align:center;color:white;">Twitter </h3>
+      <a class="twitter-timeline" data-width="100%" data-height="500" data-dnt="true" href="https://twitter.com/TeamOnyxIndia?ref_src=twsrc%5Etfw">Tweets by TeamOnyxIndia</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div> -->
+
+
+    <!-- youtube Videos -->
+   <!--  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10" id="youtube_div" >
+      <h3  style="text-align:center;color:white;">Youtube</h3>
+      <div style="width:100%;height:150px; " id="video_1">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/sPz6oBSqbbQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="row"  > 
+height:auto;      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-top: 20px" id="video_2">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/acLqCVgV4e8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div  class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-top: 20px" id="video_3">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Sa889anuHE4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div> -->
+    <!-- next row -->
+   <!--  <div class="row" >
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-top: 20px" id="video_4">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HnVLaVO6HtI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-top: 20px"  id="video_5">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Mp7t7YcDxb4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div> -->
+    <!-- end -->
+<!--     </div>
+    
+  </div> 
+
+
+</div>
+</section> -->
+
+<!--END new feeds-->
+
+
+
+
+<!-- sponsers -->
+<section>
+<h1 class="headings_shadow" style="margin-top: 40px; margin-bottom:10px;" >
+  <span style="padding-bottom:12px; border-bottom: 2px solid #E7E7E7;" >SPONSORS</span>
+</h1>
+
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="owl-carousel owl-theme sponsors">
+        <div class="item " ><img src="IMAGES\sponsor\svv_logo18.png" ></div>
+        <div class="item ""><img src="IMAGES\sponsor\kjsce7.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\somaiya_trust17.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\apc_logo6.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\packshield13.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\ajorlogo1.png"></div>
+        
+        <div class="item " ><img src="IMAGES\sponsor\drona8.png" ></div>
+        
+        <div class="item ""><img src="IMAGES\sponsor\integriti19.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\mxbon-19.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\printomake14.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\ambica3.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\virmdf20.png"></div>
+
+        <div class="item " ><img src="IMAGES\sponsor\astral_logo9.png" ></div>
+        
+        <div class="item ""><img src="IMAGES\sponsor\american_nuts_&_bolts4.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\matlab10.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\solidwork16.png"></div>
+        
+        <div class="item "><img src="IMAGES\sponsor\ansys5.png"></div>
+
+        <div class="item "><img src="IMAGES\sponsor\riidl logo15.png"></div>
+
+        <div class="item "><img src="IMAGES\sponsor\mm-logo11.png"></div>
+    </div>
+</div>
+<div class="behind"></div>
+</div>
+</section>
+<!--END sponsors-->
+
+<!-- specialisation START -->
+<div id="expertise" class="container-fluid beauty">
+  <h1 class="headings_shadow" style="margin-bottom:40px;"><span style="padding-bottom:12px;border-bottom: 2px solid #E7E7E7;">OUR EXPERTISE</span></h1>
+    <div class="row">
+        <div class="col-md-3 col-sm-4">
+            <div class="progress blue">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">84%</div>
+            </div>
+            <h3 class="expert-text">Authenticity</h3>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div class="progress yellow">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">85%</div>
+            </div>
+            <h3 class="expert-text">Propulsion</h3>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div class="progress pink">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">78%</div>
+            </div>
+            <h3 class="expert-text">Designs</h3>
+        </div>
+        <div id="lastexpertise" class="col-md-3 col-sm-4 ">
+            <div class="progress green">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">98%</div>
+            </div>
+            <h3 class="expert-text">Dedication</h3>
+        </div>
+    </div>
+</div>
+
+
+<!-- END specialisation -->
+
+<!-- Item slider-->
+  
+</div>    
+<!-- end #main_container -->
+
+<div class="container-fluid clock-main" style="text-align:center">
+<h3 class="cound_head">Countdown to our next Competition</h3>
+<div id="clockdiv" class="row">
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <span id="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <span id="hours"></span>
+    <div class="smalltext">Hours</div>
+  </div>
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <span id="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <span id="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
+<button type="button" data-toggle="modal" data-target="#exampleModal" class="button1">KNOW MORE !</button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="padding: 15px 15px 0 15px">
+        <h4 class="modal-title" id="exampleModalLabel">SESSION TITLE</h4>
+      </div>
+      <div class="modal-body">
+        <p>here come the brief jist of the project/seminar/session , not too short, informative with some bullets of what are the main points covered and how is the person going to get benifited</p>
+        <form>
+          <label for="fullname">Full Name</label>
+          <input type="text" name="fullname" class="fullname">
+          <label for="college">College</label>
+          <input type="text" name="college" class="college">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="email">
+          <label for="studying">Currently Studying</label>
+          <input type="text" name="sstudying" class="studying">
+          <div class="row"><button type="submit" class="btn btn-info col-md-4">SUBMIT</button></div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+ 
+  </div>
+<!-- start footer -->
+ <footer>
+ 
+  <div class="row" style="  max-width: none;" id="my_footer">
+ <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4 ">
+  <span ><i class="fa fa-phone" aria-hidden="true"></i></span><br>
+  <span>Parth Gabani : +91-9820720389<br/>
+  parth.ganabi@somaiya.edu</span>
+ </div>
+ <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4"  >
+  <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span><br>
+  <span>
+  teamonyxindia.engg@somaiya.edu</span>
+ </div>
+ <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+  <span><i class="fa fa-map-marker" aria-hidden="true"></i></span><br>
+  <span>Team Onyx<br />
+  Mega Project room, Aryabhatta building,<br/>
+  K. J. Somaiya College of Engineering<br />
+  Vidyavihar East<br />
+  Mumbai - 400077.</span>
+ </div>
+
+ <!-- social media links -->
+ <div  id="social_links" class="col-xs-12 col-sm-offset-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">  
+ <!-- fb -->
+ <a href="https://www.facebook.com/TeamOnyxIndia/" target="_blank"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i> </a>
+ <!-- youtube -->
+ <a href="https://www.youtube.com/channel/UCghiocKsIi8fK0hOQ1ot_6Q" target="_blank"><i class="fa fa-lg fa-youtube" aria-hidden="true"></i></a>
+ <!-- instagram -->
+ <a href="https://www.instagram.com/team_onyx_india/" target="_blank"><i class="fa fa-lg fa-instagram" aria-hidden="true"></i></a>
+ <!-- twitter -->
+ <a href="https://twitter.com/TeamOnyxIndia" target="_blank"><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a>
+ <!-- linkedin -->
+ <a href="3"><i class="fa fa-lg fa-linkedin" aria-hidden="true"></i></a>
+ </div>
+ <!-- end social media links -->
+  </div>
+
+ </footer>
+ <!-- end footer -->
+   
+</body>
+
+
